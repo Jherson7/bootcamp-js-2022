@@ -58,9 +58,6 @@ function onSubmit(event){
     precioTotal+=parseFloat(precio)
     granTotal+= parseFloat(total)
 
-    console.log("cambio para hacer commit")
-
-   
     tr.dataset.categoria = categoria
 
     tr.innerHTML =
