@@ -27,7 +27,7 @@ const formatoBienvenida = function(prefijo,texto)
 const mensaje = (prefijo, format) => (texto) => format(prefijo, texto)
 
 
-const formatoDespedida =(prefijo, texto) => `${prefijo} ${texto} ..(` //arrow function
+const formatoDespedida = (prefijo, texto) => `${prefijo} ${texto} ..(` //arrow function
 
 
 const bienvenida = mensaje("hola",formatoBienvenida)

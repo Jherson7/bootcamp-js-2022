@@ -9,8 +9,11 @@ const granTotalElement = document.getElementById("gran-total")
 const inputCodigo = document.getElementById("codigo")
 /** @type {HTMLInputElement} */
 const inputNombre = document.getElementById("nombre")
+/** @type {HTMLInputElement} */
 const inputCantidad = document.getElementById("cantidad")
+/** @type {HTMLInputElement} */
 const inputPrecio = document.getElementById("precio")
+/** @type {HTMLInputElement} */
 const selectCategoria = document.getElementById("categoria")
 
 let indice = 0;
