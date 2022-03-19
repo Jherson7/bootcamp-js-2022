@@ -164,7 +164,6 @@ const filas = productos.map((item)=> {
     }
 }
 
-
 function renderForm(producto){
     inputCodigo.value = producto.codigo || ""
     inputNombre.value = producto.nombre || ""
@@ -172,8 +171,6 @@ function renderForm(producto){
     inputPrecio.value = producto.precio || ""
     selectCategoria.value = producto.categoria || 1
 }
-
-
 
 form.addEventListener("submit", onSubmit);
 
@@ -227,9 +224,6 @@ function onSubmit(event){
         }
     })
 }
-
-
-
 
 store.dispatch({
     type: "producto-agregado",
