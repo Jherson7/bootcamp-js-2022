@@ -1,16 +1,20 @@
 
+import {applyMiddleware, createStore} from "redux"
+import {ui} from "./ui"
+import * as $store from "./store"
+
 const preloadedState ={
     producto :{},
     productos: []
 }
 
-const middleWares = Redux.applyMiddleware(
-    loggerMiddleware,
-    agregarOModificarProductoMiddleware,
-    generadorCodigoProductoBuilder(0)
+const middleWares = applyMiddleware(
+    $store.loggerMiddleware,
+    $store.agregarOModificarProductoMiddleware,
+    $store.generadorCodigoProductoBuilder(0)
 )
 
-const store = Redux.createStore(reducer, preloadedState, middleWares)
+const store = createStore($store.reducer, preloadedState, middleWares)
 
 store.subscribe(dispatchOnChange(store, (state)=> {
     ui.renderForm(state.producto)
@@ -30,13 +34,13 @@ store.subscribe(dispatchOnChange(store, (state)=> {
 // })
 
 
-ui.onFormSubmit = (producto) => store.dispatch(agregarOModificarProducto(producto))
+ui.onFormSubmit = (producto) => store.dispatch($store.agregarOModificarProducto(producto))
   
 
-ui.onEliminarClick = (codigo) => store.dispatch(productoEliminado(codigo))
+ui.onEliminarClick = (codigo) => store.dispatch($store.productoEliminado(codigo))
 
 
-ui.onEditarClick = (codigo) => store.dispatch(productoSeleccionado(codigo))
+ui.onEditarClick = (codigo) => store.dispatch($store.productoSeleccionado(codigo))
 
 
 function dispatchOnChange(store, dispatch){

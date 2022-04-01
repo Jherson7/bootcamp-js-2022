@@ -8,7 +8,7 @@ const ActionTypes = {
 
 
 
-const reducer = (state,action) => {
+export const reducer = (state,action) => {
 
     console.log("viene: ", action.type)
 
@@ -83,25 +83,25 @@ const reducer = (state,action) => {
 }
 
 //action builder
-const productoSeleccionado = (codigo) => ({
+export const productoSeleccionado = (codigo) => ({
         type:ActionTypes.ProductoSeleccionado,
         payload: {codigo }
 })
 
 
-const productoEliminado = (codigo) => ({
+export const productoEliminado = (codigo) => ({
     type: ActionTypes.ProductoEliminado,
     payload: {codigo }
 })
 
 
-const productoModificado = (payload) => ({
+export const productoModificado = (payload) => ({
     type:ActionTypes.ProductoModificado,
     payload
 })
 
 
-const productoAgregado = (payload) =>({
+export const productoAgregado = (payload) =>({
     type: ActionTypes.ProductoAgregado,
     payload
 })
@@ -119,7 +119,7 @@ const productoAgregado = (payload) =>({
 // }
 
 
-const loggerMiddleware = store => next => action => 
+export const loggerMiddleware = store => next => action => 
 {
     const result = next(action)
     console.log(store.getState())
@@ -127,13 +127,13 @@ const loggerMiddleware = store => next => action =>
 
 }
 
-const agregarOModificarProducto = (payload) => ({
+export const agregarOModificarProducto = (payload) => ({
     type: ActionTypes.ProductoAgregadoOModificado,
     payload
 })
 
 
-const agregarOModificarProductoMiddleware = store => next => action => {
+export const agregarOModificarProductoMiddleware = store => next => action => {
 
     if (action.type !=ActionTypes.ProductoAgregadoOModificado)
     {
@@ -222,7 +222,7 @@ function productoAgregadoreducer(state, action) {
     }
 }
 
-function generadorCodigoProductoBuilder(codigoInicial){
+export function generadorCodigoProductoBuilder(codigoInicial){
 
     let codigo = codigoInicial
 
